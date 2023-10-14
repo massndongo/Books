@@ -1,0 +1,10 @@
+# Route pour la page d'accueil
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+# Route pour l'endpoint de l'API /api/books
+api_books:
+    path: /api/books
+    controller: App\Controller\BookController::getBookList
+    methods: ['GET']
