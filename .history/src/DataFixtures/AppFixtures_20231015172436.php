@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
             $listAuthor[] = $author;
         }
 
-        // Création de livres
+        // Création d
         for ($i = 0; $i < 20; $i++) {
             $book = new Book();
             $book->setTitle("Titre " . $i);

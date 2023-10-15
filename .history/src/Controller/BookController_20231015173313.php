@@ -6,7 +6,6 @@ use App\Entity\Book;
 use JMS\Serializer\Serializer;
 use App\Repository\BookRepository;
 use App\Repository\AuthorRepository;
-use App\Service\VersioningService;
 use JMS\Serializer\SerializerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use JMS\Serializer\SerializationContext;

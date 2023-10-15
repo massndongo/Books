@@ -5,10 +5,9 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\BookRepository;
-use JMS\Serializer\Annotation\Since;
 use JMS\Serializer\Annotation\Groups;
-use Hateoas\Configuration\Annotation as Hateoas;
 use Symfony\Component\Validator\Constraints as Assert;
+use Hateoas\Configuration\Annotation as Hateoas;
 
 /**
  * @Hateoas\Relation(

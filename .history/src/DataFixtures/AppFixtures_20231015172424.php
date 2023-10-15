@@ -45,8 +45,6 @@ class AppFixtures extends Fixture
             // On sauvegarde l'auteur créé dans un tableau.
             $listAuthor[] = $author;
         }
-
-        // Création de livres
         for ($i = 0; $i < 20; $i++) {
             $book = new Book();
             $book->setTitle("Titre " . $i);

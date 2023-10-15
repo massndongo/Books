@@ -68,7 +68,7 @@ class Book
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(["getBooks"])] 
-    #[Since("2.0")]
+    // #[Since("2.0")]
     private ?string $comment = null;
 
     public function getId(): ?int
