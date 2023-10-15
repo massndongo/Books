@@ -129,6 +129,7 @@ class AuthorController extends AbstractController
      * @return JsonResponse
      * @Route("/api/authors/{id}", name="updateAuthors", methods={"PUT"})
      */
+    #[Route('/api/authors/{id}', name:"updateAuthors", methods:['PUT'])]
     public function updateAuthor(Request $request, SerializerInterface $serializer,
         Author $currentAuthor, EntityManagerInterface $em): JsonResponse {
 

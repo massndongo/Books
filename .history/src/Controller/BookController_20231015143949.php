@@ -14,7 +14,6 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class BookController extends AbstractController
@@ -67,8 +66,8 @@ class BookController extends AbstractController
 
         $error = $validator -> validate($book);
         if ($error -> count() > 0) {
-            return new JsonResponse($serializer -> serialize($error, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
-            // return throw new HttpException(JsonResponse::HTTP_BAD_REQUEST, "La requête est invalide");
+            // return new JsonResponse($serializer -> serialize($error, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
+            return 
         }
         // Récupération de l'ensemble des données envoyées sous forme de tableau
         $content = $request->toArray();

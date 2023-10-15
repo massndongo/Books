@@ -24,8 +24,8 @@ class AuthorController extends AbstractController
      * @param AuthorRepository $authorRepository
      * @param SerializerInterface $serializer
      * @return JsonResponse
-    * @Route("/api/authors", name="authors", methods={"GET"})
-    */
+     */
+    #[Route('/api/authors', name: 'authors', methods: ['GET'])]
     public function getAllAuthors(AuthorRepository $authorRepository, SerializerInterface $serializer): JsonResponse
     {
         $authorList = $authorRepository->findAll();
@@ -40,9 +40,8 @@ class AuthorController extends AbstractController
      * @param Author $author
      * @param SerializerInterface $serializer
      * @return JsonResponse
-     * 
-     * @Route("/api/authors/{id}", name="detailAuthor", methods={"GET"})
      */
+    #[Route('/api/authors/{id}', name: 'detailAuthor', methods: ['GET'])]
     public function getDetailAuthor(Author $author, SerializerInterface $serializer): JsonResponse {
         $jsonAuthor = $serializer->serialize($author, 'json', ['groups' => 'getAuthors']);
         return new JsonResponse($jsonAuthor, Response::HTTP_OK, [], true);
@@ -65,8 +64,8 @@ class AuthorController extends AbstractController
      * @param Author $author
      * @param EntityManagerInterface $em
      * @return JsonResponse
-     * @Route("/api/authors/{id}", name="deleteAuthor", methods={"DELETE"})
      */
+    #[Route('/api/authors/{id}', name: 'deleteAuthor', methods: ['DELETE'])]
     public function deleteAuthor(Author $author, EntityManagerInterface $em): JsonResponse {
         
         $em->remove($author);
@@ -90,11 +89,11 @@ class AuthorController extends AbstractController
      * @param EntityManagerInterface $em
      * @param UrlGeneratorInterface $urlGenerator
      * @return JsonResponse
-     * @Route("/api/authors", name="createAuthor", methods={"POST"})
      */
+    #[Route('/api/authors', name: 'createAuthor', methods: ['POST'])]
     public function createAuthor(Request $request, SerializerInterface $serializer, ValidatorInterface $validator,
         EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator): JsonResponse {
-
+            
         $author = $serializer->deserialize($request->getContent(), Author::class, 'json');
         
         $error = $validator -> validate($author);
@@ -127,8 +126,8 @@ class AuthorController extends AbstractController
      * @param Author $currentAuthor
      * @param EntityManagerInterface $em
      * @return JsonResponse
-     * @Route("/api/authors/{id}", name="updateAuthors", methods={"PUT"})
      */
+    #[Route('/api/authors/{id}', name:"updateAuthors", methods:['PUT'])]
     public function updateAuthor(Request $request, SerializerInterface $serializer,
         Author $currentAuthor, EntityManagerInterface $em): JsonResponse {
 

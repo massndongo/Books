@@ -20,8 +20,6 @@ class Author
 
     #[ORM\Column(length: 255)]
     #[Groups(["getBooks", "getAuthors"])]
-    #[Assert\NotBlank(message: "Le titre du livre est obligatoire")]
-    #[Assert\Length(min: 1, max: 255, minMessage: "Le titre doit faire au moins {{ limit }} caractères", maxMessage: "Le titre ne peut pas faire plus de {{ limit }} caractères")]
     private ?string $lastName = null;
 
     #[ORM\Column(length: 255, nullable: true)]

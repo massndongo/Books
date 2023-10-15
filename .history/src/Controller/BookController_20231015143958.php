@@ -67,8 +67,8 @@ class BookController extends AbstractController
 
         $error = $validator -> validate($book);
         if ($error -> count() > 0) {
-            return new JsonResponse($serializer -> serialize($error, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
-            // return throw new HttpException(JsonResponse::HTTP_BAD_REQUEST, "La requête est invalide");
+            // return new JsonResponse($serializer -> serialize($error, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
+            return throw new HttpException(JsonResponse::HTTP_BAD_REQUEST, "La requête est invalide");
         }
         // Récupération de l'ensemble des données envoyées sous forme de tableau
         $content = $request->toArray();
