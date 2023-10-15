@@ -61,7 +61,6 @@ class BookController extends AbstractController
 
    /**
     * @Route("/api/books/{id}", name="deleteBook", methods={"DELETE"})
-    * @IsGranted("ROLE_ADMIN", message="Vous n\'avez pas les droits suffisants pour supprimer un livre")
     */
     public function deleteBook(Book $book, EntityManagerInterface $em, TagAwareCacheInterface $cachePool): JsonResponse 
     {

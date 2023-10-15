@@ -61,19 +61,18 @@ class BookController extends AbstractController
 
    /**
     * @Route("/api/books/{id}", name="deleteBook", methods={"DELETE"})
-    * @IsGranted("ROLE_ADMIN", message="Vous n\'avez pas les droits suffisants pour supprimer un livre")
     */
-    public function deleteBook(Book $book, EntityManagerInterface $em, TagAwareCacheInterface $cachePool): JsonResponse 
-    {
-        $cachePool->invalidateTags(["booksCache"]);
-        $em->remove($book);
-        $em->flush();
-        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
-    }
+   public function deleteBook(Book $book, EntityManagerInterface $em): JsonResponse 
+   {
+       $em->remove($book);
+       $em->flush();
+
+       return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+   }
 
    /**
     * @Route("/api/books", name="createBook", methods={"POST"})
-    * @IsGranted("ROLE_ADMIN", message="Vous n\'avez pas les droits suffisants pour créer un livre")
+     * @IsGranted("ROLE_ADMIN", message="Vous n\'avez pas les droits suffisants pour créer un livre")
     */
    public function createBook(Request $request, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, SerializerInterface $serializer, AuthorRepository $authorRepository, ValidatorInterface $validator): JsonResponse
    {
